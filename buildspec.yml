@@ -4,26 +4,28 @@ version: 0.2
 #   variables:
 #     key: "value"
 #     key: "value"
-            
+
 phases:
   # install:
   #   commands:
   #     - command
   #     - command
-  
-  # pre_build:
-  #   commands:
-  #     - command
-  #     - command
-  
+
+  pre_build:
+    commands:
+      - cd $CODEBUILD_SRC_DIR
+      - git submodule init
+      - git submodule update
+
   build:
     commands:
       - cd $CODEBUILD_SRC_DIR
       - hugo --ignoreCache
-  
+
   post_build:
     commands:
       - cd $CODEBUILD_SRC_DIR/public
+      - find .
       - aws s3 cp --recursive . s3://ffit-static-website-content/website/
 
 # artifacts:
