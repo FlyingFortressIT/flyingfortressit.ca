@@ -11,3 +11,4 @@ fi
 
 rm -rf public 2>/dev/null
 $HUGO_BIN --ignoreCache
+aws s3 cp --recursive --exclude '.git/*' --exclude '.gitignore' --exclude '.gitmodules' --dryrun . s3://ffit-static-website-content/website/
