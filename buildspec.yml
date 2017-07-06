@@ -24,7 +24,7 @@ phases:
   post_build:
     commands:
       - cd $CODEBUILD_SRC_DIR/public
-      - aws s3 cp --recursive --exclude '.git/*' --exclude '.gitignore' --exclude '.gitmodules' --dryrun . s3://ffit-static-website-content/website/
+      - aws s3 cp --recursive . s3://ffit-static-website-content/website/
 
 # artifacts:
 #   files:
