@@ -1,0 +1,34 @@
+version: 0.2
+
+# env:
+#   variables:
+#     key: "value"
+#     key: "value"
+            
+phases:
+  # install:
+  #   commands:
+  #     - command
+  #     - command
+  
+  # pre_build:
+  #   commands:
+  #     - command
+  #     - command
+  
+  build:
+    commands:
+      - cd $CODEBUILD_SRC_DIR
+      - hugo --ignoreCache
+  
+  post_build:
+    commands:
+      - cd $CODEBUILD_SRC_DIR/public
+      - aws s3 cp --recursive --exclude '.git/*' --exclude '.gitignore' --exclude '.gitmodules' --dryrun . s3://ffit-static-website-content/website/
+
+# artifacts:
+#   files:
+#     - location
+#     - location
+#   discard-paths: yes
+#   base-directory: location
