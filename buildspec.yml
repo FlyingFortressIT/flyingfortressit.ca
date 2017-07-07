@@ -31,7 +31,6 @@ phases:
   post_build:
     commands:
       - cd $CODEBUILD_SRC_DIR/public
-      - find .
       - aws s3 cp --recursive . s3://$TARGET_S3_BUCKET/website/
 
 # artifacts:
