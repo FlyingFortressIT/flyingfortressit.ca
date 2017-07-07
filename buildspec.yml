@@ -24,7 +24,7 @@ phases:
     commands:
       - cd $CODEBUILD_SRC_DIR
       # Replace the GA_TRACKING_ID placeholder with the tracking ID from the environment variable
-      - sed -i "s/{{GA_TRACKING_ID}}/$GA_TRACKING_ID/" config.tml
+      - sed -i "s/{{GA_TRACKING_ID}}/$GA_TRACKING_ID/" config.toml
       - grep googleAnalytics config.toml
       - hugo --ignoreCache
 
