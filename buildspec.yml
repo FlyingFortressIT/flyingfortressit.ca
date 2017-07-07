@@ -17,7 +17,7 @@ phases:
       - git submodule init
       - git submodule update
       # Insert the Google Analytics template code into the header HTML partial
-      - sed -i 's|<!-- Scripts -->|<!-- Scripts -->\n\t\t\t{{ template "_internal/google_analytics_async.html" . }}|' themes/layouts/partials/header.html
+      - sed -i 's|<!-- Scripts -->|<!-- Scripts -->\n\t\t\t{{ template "_internal/google_analytics_async.html" . }}|' themes/dimension/layouts/partials/header.html
       - grep template themes/dimension/layouts/partials/header.html
 
   build:
