@@ -16,17 +16,23 @@ phases:
       - cd $CODEBUILD_SRC_DIR
       - git submodule init
       - git submodule update
+      # Insert the Google Analytics template code into the header HTML partial
+      - sed -i 's|<!-- Scripts -->|<!-- Scripts -->\n\t\t\t{{ template "_internal/google_analytics_async.html" . }}|' themes/layouts/partials/header.html
+      - grep template themes/dimension/layouts/partials/header.html
 
   build:
     commands:
       - cd $CODEBUILD_SRC_DIR
+      # Replace the GA_TRACKING_ID placeholder with the tracking ID from the environment variable
+      - sed -i "s/{{GA_TRACKING_ID}}/$GA_TRACKING_ID/" config.tml
+      - grep googleAnalytics config.toml
       - hugo --ignoreCache
 
   post_build:
     commands:
       - cd $CODEBUILD_SRC_DIR/public
       - find .
-      - aws s3 cp --recursive . s3://ffit-static-website-content/website/
+      - aws s3 cp --recursive . s3://$TARGET_S3_BUCKET/website/
 
 # artifacts:
 #   files:

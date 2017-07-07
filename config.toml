@@ -4,7 +4,8 @@ theme = "dimension"
 languageCode = "en-us"
 defaultContentLanguage = "en"
 enableRobotsTXT = true
-disableKinds=["RSS"]
+googleAnalytics = "{{GA_TRACKING_ID}}"
+disableKinds = ["RSS"]
 
 [params]
   description = '<!--[-->
