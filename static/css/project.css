@@ -1,0 +1,11 @@
+ #header nav ul li a {
+    display: block;
+    min-width: 10rem;
+    height: 2.75rem;
+    line-height: 2.75rem;
+    padding: 0 0 0 0;
+    text-transform: uppercase;
+    letter-spacing: 0.2rem;
+    font-size: 0.8rem;
+    border-bottom: 0;
+}
