@@ -13,6 +13,9 @@ Below are our currently held and valid certifications. For more details on the r
   - Certified AWS Solutions Architect - Associate
   - Certified AWS Cloud Developer - Associate
   - Certified AWS SysOps Administrator - Associate
+  
+- Travis Friesen holds the following Information Security certifications:
+  - SANS GXPN - GIAC Exploit Writing and Advanced Penetration Testing
 
 ## Publications
 
